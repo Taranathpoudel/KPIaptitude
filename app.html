@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Aptitude Test - Kisan Polytechnic Institute</title>
+    <style>
+        /* General Page Styling */
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header Styling */
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .institute-name {
+            font-size: 26px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin: 0;
+        }
+
+        .course-name {
+            font-size: 18px;
+            color: #555;
+            margin: 5px 0 15px 0;
+        }
+
+        .test-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2980b9;
+            margin: 0;
+        }
+
+        .subtitle {
+            font-size: 15px;
+            font-style: italic;
+            color: #7f8c8d;
+            margin: 5px 0 0 0;
+        }
+
+        /* Student Info Box */
+        .student-info {
+            display: flex;
+            justify-content: space-between;
+            border: 1px solid #ccc;
+            padding: 15px 20px;
+            border-radius: 6px;
+            background: #fafafa;
+            margin-bottom: 25px;
+        }
+
+        .input-group {
+            flex: 1;
+            display: flex;
+            align-items: flex-end;
+            margin-right: 20px;
+        }
+
+        .input-group:last-child {
+            margin-right: 0;
+        }
+
+        .input-group label {
+            font-weight: bold;
+            margin-right: 10px;
+            white-space: nowrap;
+        }
+
+        .input-group input {
+            flex: 1;
+            border: none;
+            border-bottom: 1px solid #999;
+            background: transparent;
+            font-size: 16px;
+            outline: none;
+            padding: 2px 5px;
+        }
+
+        /* Instructions Box */
+        .instructions {
+            background-color: #e8f4f8;
+            border-left: 5px solid #3498db;
+            padding: 15px 20px;
+            border-radius: 4px;
+            margin-bottom: 30px;
+        }
+
+        .instructions p {
+            margin: 0 0 5px 0;
+        }
+
+        .nepali-text {
+            font-style: italic;
+            color: #555;
+        }
+
+        /* Question Layout */
+        .question-block {
+            margin-bottom: 35px;
+            page-break-inside: avoid;
+            /* Prevents questions splitting across pages when printing */
+        }
+
+        .question-text {
+            font-weight: bold;
+            font-size: 16px;
+            margin: 0 0 4px 0;
+        }
+
+        .question-nepali {
+            font-style: italic;
+            color: #666;
+            margin: 0 0 15px 0;
+            font-size: 15px;
+        }
+
+        /* Options Layout */
+        .options-list {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .option-item {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .option-item input {
+            margin-top: 5px;
+            margin-right: 12px;
+            cursor: pointer;
+        }
+
+        .option-label {
+            cursor: pointer;
+            display: block;
+        }
+
+        .opt-eng {
+            display: block;
+            font-weight: 500;
+        }
+
+        .opt-nep {
+            display: block;
+            font-style: italic;
+            color: #777;
+            font-size: 14.5px;
+            margin-top: 2px;
+        }
+
+        /* Print Button & Footer */
+        .btn-print {
+            display: block;
+            width: 100%;
+            max-width: 250px;
+            margin: 0 auto 30px auto;
+            padding: 12px;
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn-print:hover {
+            background-color: #1a252f;
+        }
+
+        .footer {
+            text-align: center;
+            color: #aaa;
+            font-size: 14px;
+            margin-top: 40px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        /* Print Media Query - hides button and removes background when printing */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                padding: 0;
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .btn-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="btn-print" onclick="window.print()">🖨️ Print Test / Save as PDF</button>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1 class="institute-name">Kisan Polytechnic Institute</h1>
+            <p class="course-name">220hr Basic Computer Training</p>
+            <h2 class="test-title">Tech Aptitude Test / प्राविधिक अभिरुचि परीक्षण</h2>
+            <p class="subtitle">Discover Your Future Path / आफ्नो भविष्यको बाटो पहिचान गर्नुहोस्</p>
+        </header>
+
+        <!-- Student Information -->
+        <div class="student-info">
+            <div class="input-group">
+                <label for="student-name">Name (नाम):</label>
+                <input type="text" id="student-name" placeholder="">
+            </div>
+            <div class="input-group">
+                <label for="student-phone">Phone (फोन नं):</label>
+                <input type="text" id="student-phone" placeholder="">
+            </div>
+        </div>
+
+        <!-- Instructions -->
+        <div class="instructions">
+            <p><strong>Instructions / निर्देशनहरू:</strong></p>
+            <p>There are no right or wrong answers. Choose the option that best describes what you would naturally do or
+                feel. Be honest!</p>
+            <p class="nepali-text">यसमा कुनै सही वा गलत उत्तर छैन। तपाईंको स्वभाव र भावनासँग सबैभन्दा मिल्ने विकल्प
+                छान्नुहोस्। इमानदार हुनुहोस्!</p>
+        </div>
+
+        <!-- Form for Questions -->
+        <form>
+
+            <!-- Question 1 -->
+            <div class="question-block">
+                <p class="question-text">1. You buy a new electronic gadget or a game, but it’s quite complicated to
+                    use. What is your first instinct?</p>
+                <p class="question-nepali">तपाईंले एउटा नयाँ इलेक्ट्रोनिक ग्याजेट वा गेम किन्नुभयो, तर चलाउन निकै गाह्रो
+                    छ। तपाईं सबैभन्दा पहिले के गर्नुहुन्छ?</p>
+                <ul class="options-list">
+                    <li class="option-item"><input type="radio" name="q1" id="q1a"> <label for="q1a"
+                            class="option-label"><span class="opt-eng">A) Read the entire instruction manual from the
+                                first page to the last before turning it on.</span> <span class="opt-nep">यसलाई अन
+                                गर्नुअघि निर्देशन पुस्तिका पहिलोदेखि अन्तिम पानासम्म पढ्छु।</span></label></li>
+                    <li class="option-item"><input type="radio" name="q1" id="q1b"> <label for="q1b"
+                            class="option-label"><span class="opt-eng">B) Turn it on immediately, press buttons, and
+                                figure out how it works by experimenting.</span> <span class="opt-nep">तुरुन्तै अन
+                                गर्छु, बटनहरू थिच्छु र आफैं चलाएर कसरी काम गर्छ भनेर पत्ता लगाउँछु।</span></label></li>
+                    <li class="option-item"><input type="radio" name="q1" id="q1c"> <label for="q1c"
+                            class="option-label"><span class="opt-eng">C) Ask an older sibling or a friend to set it up
+                                for me.</span> <span class="opt-nep">दाइ/दिदी वा साथीलाई सेटिङ मिलाइदिन आग्रह
+                                गर्छु।</span></label></li>
+                    <li class="option-item"><input type="radio" name="q1" id="q1d"> <label for="q1d"
+                            class="option-label"><span class="opt-eng">D) Leave it in the box until someone shows me
+                                exactly how to use it safely.</span> <span class="opt-nep">कसैले सुरक्षित रूपमा चलाउन
+                                नसिकाएसम्म बक्समै छाडिदिन्छु।</span></label></li>
+                </ul>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question-block">
+                <p class="question-text">2. Imagine you are given a free week with no school and no homework. Which
+                    activity sounds the most exciting to you?</p>
+                <p class="question-nepali">कल्पना गर्नुहोस्, तपाईंलाई स्कुल र होमवर्क बिनाको एक हप्ताको छुट्टी दिइयो।
+                    तपाईंलाई कुन काम गर्न सबैभन्दा रमाइलो लाग्छ?</p>
+                <ul class="options-list">
+                    <li class="option-item"><input type="radio" name="q2" id="q2a"> <label for="q2a"
+                            class="option-label"><span class="opt-eng">A) Reading novels or memorizing facts for an
+                                upcoming quiz.</span> <span class="opt-nep">उपन्यासहरू पढ्ने वा हाजिरीजवाफको लागि
+                                सामान्य ज्ञान कण्ठ गर्ने।</span></label></li>
+                    <li class="option-item"><input type="radio" name="q2" id="q2b"> <label for="q2b"
+                            class="option-label"><span class="opt-eng">B) Taking apart a broken radio or old laptop to
+                                see what’s inside and trying to fix it.</span> <span class="opt-nep">बिग्रिएको रेडियो वा
+                                पुरानो ल्यापटप खोलेर भित्र के छ हेर्ने र मर्मत गर्ने प्रयास गर्ने।</span></label></li>
+                    <li class="option-item"><input type="radio" name="q2" id="q2c"> <label for="q2c"
+                            class="option-label"><span class="opt-eng">C) Hanging out with friends and playing games all
+                                day.</span> <span class="opt-nep">साथीहरूसँग घुम्न जाने र दिनभरि गेम
+                                खेल्ने।</span></label></li>
+                    <li class="option-item"><input type="radio" name="q2" id="q2d"> <label for="q2d"
+                            class="option-label"><span class="opt-eng">D) Writing stories or drawing scenery.</span>
+                            <span class="opt-nep">कथाहरू लेख्ने वा प्राकृतिक दृश्यहरूको चित्र कोर्ने।</span></label>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Question 3 (Updated) -->
+            <div class="question-block">
+                <p class="question-text">3. Which quality of the footballer Cristiano Ronaldo do you admire the most?
+                </p>
+                <p class="question-nepali">फुटबल खेलाडी क्रिस्टियानो रोनाल्डोको कुन गुण तपाईंलाई सबैभन्दा धेरै मन पर्छ?
+                </p>
+                <ul class="options-list">
+                    <li class="option-item"><input type="radio" name="q3" id="q3a"> <label for="q3a"
+                            class="option-label"><span class="opt-eng">A) His aggression and fierce passion for
+                                winning.</span> <span class="opt-nep">उनको आक्रामकता र जित्ने तीव्र
+                                इच्छा।</span></label></li>
+                    <li class="option-item"><input type="radio" name="q3" id="q3b"> <label for="q3b"
+                            class="option-label"><span class="opt-eng">B) His extreme discipline, hard work, and
+                                relentless practice.</span> <span class="opt-nep">उनको कडा अनुशासन, कडा मेहनत र निरन्तर
+                                अभ्यास।</span></label></li>
+                    <li class="option-item"><input type="radio" name="q3" id="q3c"> <label for="q3c"
+                            class="option-label"><span class="opt-eng">C) His leadership skills and ability to guide the
+                                team.</span> <span class="opt-nep">उनको नेतृत्व गर्ने क्षमता र समूहलाई मार्गदर्शन गर्ने
+                                खुबी।</span></label></li>
+                    <li class="option-item"><input type="radio" name="q3" id="q3d"> <label for="q3d"
+                            class="option-label"><span class="opt-eng">D) His teamwork and ability to assist other
+                                players.</span> <span class="opt-nep">समूहमा मिलेर खेल्ने (Teamwork) र अरूलाई सहयोग
+                                गर्ने बानी।</span></label></li>
+                </ul>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="question-block">
+                <p class="question-text">4. You are using a mobile app and it suddenly stops working, showing a weird
+                    error code. How do you react?</p>
+                <p class="question-nepali">तपाईं मोबाइलमा एउटा एप चलाइरहनुभएको छ र अचानक अनौठो इरर कोड (error code)
+                    देखाएर एप चल्न बन्द भयो। तपाईं के गर्नुहुन्छ?</p>
+                <ul class="options-list">
+                    <li class="option-item"><input type="radio" name="q4" id="q4a"> <label for="q4a"
+                            class="option-label"><span class="opt-eng">A) Get frustrated, delete the app, and try to
+                                find a different one.</span> <span class="opt-nep">दिक्क मानेर त्यो एप डिलिट गर्छु र
+                                अर्कै नयाँ एप खोज्छु।</span></label></li>
+                    <li class="option-item"><input type="radio" name="q4" id="q4b"> <label for="q4b"
+                            class="option-label"><span class="opt-eng">B) Search Google or YouTube for the error code to
+                                see if I can fix the problem myself.</span> <span class="opt-nep">गुगल वा युट्युबमा त्यो
+                                इरर कोड खोजेर आफैं समस्या समाधान गर्न सकिन्छ कि भनेर हेर्छु।</span></label></li>
+                    <li class="option-item"><input type="radio" name="q4" id="q4c"> <label for="q4c"
+                            class="option-label"><span class="opt-eng">C) Wait for an update or take the phone to a
+                                repair shop.</span> <span class="opt-nep">नयाँ अपडेटको पर्खाइमा बस्छु वा फोन मर्मत
+                                केन्द्रमा लान्छु।</span></label></li>
+                    <li class="option-item"><input type="radio" name="q4" id="q4d"> <label for="q4d"
+                            class="option-label"><span class="opt-eng">D) Ignore it and just use the phone for other
+                                things.</span> <span class="opt-nep">वास्ता गर्दिनँ र फोनमा अरू नै कुरा चलाउन
+                                थाल्छु।</span></label></li>
+                </ul>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="question-block">
+                <p class="question-text">5. All of your close friends are joining a regular +2 college
+                    (Science/Management). However, you find a technical institute that teaches hands-on computer skills.
+                    What are you most likely to do?</p>
+                <p class="question-nepali">तपाइँका सबै नजिकका साथीहरू साधारण +२ पढ्न भर्ना हुँदैछन्। तर, तपाईंले एउटा
+                    प्राविधिक शिक्षालय भेट्टाउनुभयो जहाँ कम्प्युटरका व्यावहारिक सीपहरू सिकाइन्छ। तपाईं के गर्नुहुन्छ?
+                </p>
+                <ul class="options-list">
+                    <li class="option-item"><input type="radio" name="q5" id="q5a"> <label for="q5a"
+                            class="option-label"><span class="opt-eng">A) Follow my friends to the +2 college; I don't
+                                want to be left alone.</span> <span class="opt-nep">साथीहरूसँगै +२ कलेजमै भर्ना हुन्छु;
+                                म एक्लो हुन चाहन्नँ।</span></label></li>
+                    <li class="option-item"><input type="radio" name="q5" id="q5b"> <label for="q5b"
+                            class="option-label"><span class="opt-eng">B) Join the technical institute because I want
+                                practical skills, even if it means making new friends.</span> <span class="opt-nep">म
+                                प्राविधिक शिक्षालयमै भर्ना हुन्छु किनभने मलाई व्यावहारिक सीप सिक्नु छ, चाहे नयाँ साथीहरू
+                                नै किन बनाउन नपरोस्।</span></label></li>
+                    <li class="option-item"><input type="radio" name="q5" id="q5c"> <label for="q5c"
+                            class="option-label"><span class="opt-eng">C) Ask my parents to make the final decision for
+                                me.</span> <span class="opt-nep">मेरो लागि अन्तिम निर्णय गरिदिन बुवाआमालाई आग्रह
+                                गर्छु।</span></label></li>
+                    <li class="option-item"><input type="radio" name="q5" id="q5d"> <label for="q5d"
+                            class="option-label"><span class="opt-eng">D) Try to study both, even if it makes me
+                                exhausted.</span> <span class="opt-nep">थकाइ लागे पनि दुवैतिर पढ्ने प्रयास
+                                गर्छु।</span></label></li>
+                </ul>
+            </div>
+
+            <!-- Question 6 -->
+            <div class="question-block">
+                <p class="question-text">6. If you were given Rs. 10,000 today, what would you most likely spend it on?
+                </p>
+                <p class="question-nepali">यदि तपाईंलाई आज १०,००० रुपैयाँ दिइयो भने, तपाईं त्यो पैसा केमा खर्च
+                    गर्नुहुन्छ?</p>
+                <ul class="options-list">
+                    <li class="option-item"><input type="radio" name="q6" id="q6a"> <label for="q6a"
+                            class="option-label"><span class="opt-eng">A) Buying trendy clothes, shoes, or a new phone
+                                accessory.</span> <span class="opt-nep">फेसनदार लुगा, जुत्ता वा मोबाइलको कभर/एक्सेसरी
+                                किन्छु।</span></label></li>
+                    <li class="option-item"><input type="radio" name="q6" id="q6b"> <label for="q6b"
+                            class="option-label"><span class="opt-eng">B) Paying for a short course or tools to learn a
+                                new technical skill.</span> <span class="opt-nep">नयाँ प्राविधिक सीप सिक्नको लागि कुनै
+                                छोटो तालिम लिन्छु वा आवश्यक उपकरणहरू किन्छु।</span></label></li>
+                    <li class="option-item"><input type="radio" name="q6" id="q6c"> <label for="q6c"
+                            class="option-label"><span class="opt-eng">C) Saving it in the bank for university fees 5
+                                years from now.</span> <span class="opt-nep">५ वर्षपछिको विश्वविद्यालयको शुल्क तिर्न
+                                बैंकमा जम्मा गर्छु।</span></label></li>
+                    <li class="option-item"><input type="radio" name="q6" id="q6d"> <label for="q6d"
+                            class="option-label"><span class="opt-eng">D) Going on a trip with my friends.</span> <span
+                                class="opt-nep">साथीहरूसँग घुम्न जान्छु।</span></label></li>
+                </ul>
+            </div>
+
+            <!-- Question 7 -->
+            <div class="question-block">
+                <p class="question-text">7. How do you prefer to learn something completely new?</p>
+                <p class="question-nepali">तपाईं पूर्ण रूपमा नयाँ कुरा कसरी सिक्न रुचाउनुहुन्छ?</p>
+                <ul class="options-list">
+                    <li class="option-item"><input type="radio" name="q7" id="q7a"> <label for="q7a"
+                            class="option-label"><span class="opt-eng">A) Listening to a teacher explain it on a
+                                whiteboard.</span> <span class="opt-nep">शिक्षकले ह्वाइटबोर्डमा बुझाएको
+                                सुनेर।</span></label></li>
+                    <li class="option-item"><input type="radio" name="q7" id="q7b"> <label for="q7b"
+                            class="option-label"><span class="opt-eng">B) Reading a textbook about it.</span> <span
+                                class="opt-nep">यसको बारेमा किताब पढेर।</span></label></li>
+                    <li class="option-item"><input type="radio" name="q7" id="q7c"> <label for="q7c"
+                            class="option-label"><span class="opt-eng">C) Watching someone do it, and then immediately
+                                trying it with my own hands.</span> <span class="opt-nep">अरूले गरेको हेरेर, अनि
+                                तुरुन्तै आफ्नै हातले अभ्यास गरेर।</span></label></li>
+                    <li class="option-item"><input type="radio" name="q7" id="q7d"> <label for="q7d"
+                            class="option-label"><span class="opt-eng">D) Watching a documentary about it.</span> <span
+                                class="opt-nep">यसको बारेमा डकुमेन्ट्री हेरेर।</span></label></li>
+                </ul>
+            </div>
+
+            <!-- Question 8 -->
+            <div class="question-block">
+                <p class="question-text">8. When you look at popular software, websites, or video games, what is your
+                    primary thought?</p>
+                <p class="question-nepali">जब तपाईं चर्चित सफ्टवेयर, वेबसाइट वा भिडियो गेमहरू देख्नुहुन्छ, तपाईंको पहिलो
+                    सोचाइ के हुन्छ?</p>
+                <ul class="options-list">
+                    <li class="option-item"><input type="radio" name="q8" id="q8a"> <label for="q8a"
+                            class="option-label"><span class="opt-eng">A) "This is fun to use/play!"</span> <span
+                                class="opt-nep">"यो चलाउन/खेल्न कति रमाइलो छ!"</span></label></li>
+                    <li class="option-item"><input type="radio" name="q8" id="q8b"> <label for="q8b"
+                            class="option-label"><span class="opt-eng">B) "I wonder how they built this and what code
+                                runs behind the screen?"</span> <span class="opt-nep">"यिनीहरूले यो कसरी बनाए होलान् र
+                                स्क्रिनको पछाडि कुन कोड (code) चल्छ होला?"</span></label></li>
+                    <li class="option-item"><input type="radio" name="q8" id="q8c"> <label for="q8c"
+                            class="option-label"><span class="opt-eng">C) "I wish I could buy the premium version of
+                                this."</span> <span class="opt-nep">"म यसको प्रिमियम भर्सन किन्न पाए कति राम्रो
+                                हुन्थ्यो।"</span></label></li>
+                    <li class="option-item"><input type="radio" name="q8" id="q8d"> <label for="q8d"
+                            class="option-label"><span class="opt-eng">D) "This is too complicated, I only use what I
+                                need."</span> <span class="opt-nep">"यो धेरै गाह्रो छ, म आफूलाई चाहिने कुरा मात्र
+                                चलाउँछु।"</span></label></li>
+                </ul>
+            </div>
+
+            <!-- Question 9 -->
+            <div class="question-block">
+                <p class="question-text">9. Fast forward 3 years from now. Where do you see yourself?</p>
+                <p class="question-nepali">आजदेखि ३ वर्षपछिको भविष्यमा तपाईं आफूलाई कहाँ देख्नुहुन्छ?</p>
+                <ul class="options-list">
+                    <li class="option-item"><input type="radio" name="q9" id="q9a"> <label for="q9a"
+                            class="option-label"><span class="opt-eng">A) Sitting in a classroom, preparing for tough
+                                university entrance exams.</span> <span class="opt-nep">एउटा कक्षाकोठामा बसेर
+                                विश्वविद्यालयको कठिन प्रवेश परीक्षाको तयारी गरिरहेको।</span></label></li>
+                    <li class="option-item"><input type="radio" name="q9" id="q9b"> <label for="q9b"
+                            class="option-label"><span class="opt-eng">B) Working as a skilled professional, earning
+                                money, while continuing further technical studies.</span> <span class="opt-nep">एक दक्ष
+                                प्राविधिकको रूपमा काम गर्दै, पैसा कमाउँदै र साथसाथै थप प्राविधिक अध्ययनलाई निरन्तरता
+                                दिइरहेको।</span></label></li>
+                    <li class="option-item"><input type="radio" name="q9" id="q9c"> <label for="q9c"
+                            class="option-label"><span class="opt-eng">C) Unsure, I am just going with the flow and
+                                seeing what happens.</span> <span class="opt-nep">थाहा छैन, समय अनुसार अघि बढ्दै छु र जे
+                                हुन्छ हेर्दै जान्छु।</span></label></li>
+                    <li class="option-item"><input type="radio" name="q9" id="q9d"> <label for="q9d"
+                            class="option-label"><span class="opt-eng">D) Hopefully moving to a foreign country
+                                immediately.</span> <span class="opt-nep">सकेसम्म चाँडै विदेश गइरहेको।</span></label>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Question 10 -->
+            <div class="question-block">
+                <p class="question-text">10. You are working in a team for a school project and your team makes a huge
+                    mistake right before the deadline. What is your reaction?</p>
+                <p class="question-nepali">तपाईं स्कुलको प्रोजेक्टको लागि समूहमा काम गरिरहनुभएको छ र बुझाउने समय हुनै
+                    लाग्दा तपाईंको समूहबाट ठूलो गल्ती भयो। तपाईं के गर्नुहुन्छ?</p>
+                <ul class="options-list">
+                    <li class="option-item"><input type="radio" name="q10" id="q10a"> <label for="q10a"
+                            class="option-label"><span class="opt-eng">A) Find out whose fault it was so they can take
+                                the blame.</span> <span class="opt-nep">यो कसको गल्ती थियो भनेर पत्ता लगाउँछु ताकि उसले
+                                जिम्मा लिन सकोस्।</span></label></li>
+                    <li class="option-item"><input type="radio" name="q10" id="q10b"> <label for="q10b"
+                            class="option-label"><span class="opt-eng">B) Quickly analyze what went wrong and try to
+                                build a rapid, practical solution together.</span> <span class="opt-nep">के गल्ती भयो
+                                भनेर तुरुन्तै विश्लेषण गर्छु र सबै मिलेर छिटो र व्यावहारिक समाधान खोज्ने प्रयास
+                                गर्छु।</span></label></li>
+                    <li class="option-item"><input type="radio" name="q10" id="q10c"> <label for="q10c"
+                            class="option-label"><span class="opt-eng">C) Panic and tell the teacher we need an
+                                extension.</span> <span class="opt-nep">आत्तिन्छु र शिक्षकलाई समय थपिदिन आग्रह
+                                गर्छु।</span></label></li>
+                    <li class="option-item"><input type="radio" name="q10" id="q10d"> <label for="q10d"
+                            class="option-label"><span class="opt-eng">D) Give up; there is no time to fix it
+                                anyway.</span> <span class="opt-nep">हरेस खान्छु; किनभने यसलाई मर्मत गर्ने समय नै
+                                छैन।</span></label></li>
+                </ul>
+            </div>
+
+        </form>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>--- End of Test / परीक्षा समाप्त ---</p>
+        </div>
+    </div>
+
+</body>
+
+</html>
